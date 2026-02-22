@@ -35,6 +35,8 @@ export default function Home() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    setEmail(null);                 // 🔥 kritik satır
+    window.location.reload();       // 🔥 garanti temizlik
   };
 
   if (loading) return <div>Yükleniyor...</div>;
